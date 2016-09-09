@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "no-unused-vars": 0,
+    "padded-blocks": 0,
+    "no-trailing-spaces": 0
+  },
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+
+  "env": {
+    "browser": true
+  }
+}
