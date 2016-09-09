@@ -6,9 +6,7 @@ import user from '../components/user';
 export default (state, prev, send) => (
 
   html`
-    <section>
-      <p>${user(state, prev, send)}</p>
-    </section>
+    ${user(state, prev, send)}
   `
 
 );

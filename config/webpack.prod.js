@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var baseConfig = require('./webpack.base.js');
+var CompressionPlugin = require("compression-webpack-plugin");
 var path = require('path');
 var root = require('root-path');
 
@@ -29,6 +30,13 @@ module.exports = webpackMerge(baseConfig, {
             compress: {
                 warnings: false
             }
+        }),
+        new CompressionPlugin({
+          asset: "[path].gz[query]",
+          algorithm: "gzip",
+          test: /\.js$|\.css$|\.html$/,
+          threshold: 10240,
+          minRatio: 0.8
         }),
         new webpack.DefinePlugin({
             'process.env': {
