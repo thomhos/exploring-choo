@@ -1,4 +1,4 @@
-import { main, home, users, user } from '../views';
+import { main, home, projects, project, articles, article } from '../views';
 
 export default (app) => {
 
@@ -10,8 +10,11 @@ export default (app) => {
   // Mount all routes
   app.router((route) => [
     route('/', subview(home)),
-    route('/users', subview(users), [
-      route('/:userId', subview(user)),
+    route('/projects', subview(projects), [
+      route('/:projectId', subview(project)),
+    ]),
+    route('/articles', subview(articles), [
+      route('/:articleId', subview(article)),
     ]),
   ]);
 

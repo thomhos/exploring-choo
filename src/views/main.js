@@ -1,14 +1,6 @@
 import html from 'choo/html';
-import config from '../config.js';
-import navigation from '../components/navigation';
+import main from '../components/main';
 
 export default (state, prev, send, view) => (
-
-  html`
-    <main>
-      ${navigation(state, prev, send)}
-      ${view(state, prev, send)}
-    </main>
-  `
-
+  html`${main(state, prev, send, view)}`
 );
