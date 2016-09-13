@@ -3,6 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 var rupture = require('rupture');
+var babelSettings = { extends: path.join(__dirname, './.babelrc') };
 
 module.exports = {
     entry: {
@@ -51,11 +52,10 @@ module.exports = {
     },
 
     stylus: {
-        use: [rupture()]
+      use: [rupture()]
     },
 
     plugins: [
-        new ExtractTextPlugin('styles.css'),
 
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app']
@@ -63,6 +63,13 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: 'src/index.html'
-        })
+        }),
+
+        new ExtractTextPlugin(
+          'styles.css',
+          {
+            allChunks: true
+          }
+        ),
     ]
 };

@@ -1,0 +1,14 @@
+$header-mobile-padding = $grid-padding;
+
+.header-mobile
+    position: relative;
+    padding: $header-mobile-padding;
+
+    +above('l')
+        display: none;
+
+    button
+        position: absolute;
+        top: $header-mobile-padding;
+        right: $header-mobile-padding;
+        z-index: 10;

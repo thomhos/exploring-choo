@@ -1,6 +1,7 @@
 import choo from 'choo';
-import models from './models';
-import routes from './routes';
+import models from './js/models';
+import routes from './js/routes';
+import styles from './styles/index.styl';
 
 // Define the app instance
 const app = choo();
