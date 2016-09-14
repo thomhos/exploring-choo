@@ -4,12 +4,24 @@ $sidebar-padding = $grid-padding;
     height: 100%;
     padding: $sidebar-padding;
     background-color: $color-grey;
+    overflow: hidden;
 
     +below('m')
         position: absolute;
         top: 0;
         left: 0;
         visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 0.1s,opacity 0.1s ease-out;
+
+        .sidebar__content
+            transform: translateX(150%);
+            transition: transform 0.2s ease-out 0.1s;
 
         &[data-activated="true"]
             visibility: visible;
+            opacity: 1;
+            transition-delay:0s;
+
+            .sidebar__content
+                transform: translateX(0);

@@ -12,6 +12,15 @@ models(app);
 // Mount all the routes
 routes(app);
 
+app.use({
+  onAction: (data, state, name, caller, createSend) => {
+    console.groupCollapsed(`Action: ${caller} -> ${name}`);
+    console.log(data);
+    console.log(state);
+    console.groupEnd();
+  },
+});
+
 // Run forrest, run
 const tree = app.start();
 

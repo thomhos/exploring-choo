@@ -1,12 +1,12 @@
 import html from 'choo/html';
 
 export default (state, prev, send) => {
+  // Sidebar menu state
+  const { activeState } = state.sidebar;
 
-  const { menuActive } = state.headerMobile;
-
-  const toggleSidebarActiveState = (e) => {
+  const setActiveState = (e) => {
     e.preventDefault();
-    send('headerMobile:toggleSidebarActiveState');
+    send('sidebar:setActiveState', !activeState);
   };
 
   // Return the rendered HTML
@@ -16,8 +16,8 @@ export default (state, prev, send) => {
       <span>JavaScript Developer</span>
 
       <button
-        onclick=${toggleSidebarActiveState}
-        data-activated="${menuActive}">
+        onclick=${setActiveState}
+        data-activated="${activeState}">
         ToggleMenu
       </button>
     </section>

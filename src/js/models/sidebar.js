@@ -7,26 +7,22 @@ export default {
     navigation: [],
     socials: [],
     languages: [],
-    sidebarActiveState: false,
+    activeState: false,
   },
   effects: {
-    fetchNavigation: (data, state, send, done) => {
-      const { navigation } = config;
-      send('sidebar:receiveNavigation', navigation, done);
-    },
-    fetchSocials: (data, state, send, done) => {
-      const { socials } = config;
-      send('sidebar:receiveSocials', socials, done);
-    },
-    fetchLanguages: (data, state, send, done) => {
-      const { languages } = config;
-      send('sidebar:receiveLanguages', languages, done);
+    fetchContent: (data, state, send, done) => {
+      const { sidebar } = config;
+      send('sidebar:receiveContent', sidebar, done);
     },
   },
   reducers: {
-    receiveNavigation: (data, state) => ({ navigation: data }),
-    receiveSocials: (data, state) => ({ socials: data }),
-    receiveLanguages: (data, state) => ({ languages: data }),
-    setActiveState: (data, state) => ({ sidebarActiveState: data }),
+    receiveContent: (data, state) => ({
+      navigation: data.navigation,
+      socials: data.socials,
+      languages: data.languages,
+    }),
+    setActiveState: (data, state) => ({
+      activeState: data,
+    }),
   },
 };

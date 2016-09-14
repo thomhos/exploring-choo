@@ -5,11 +5,6 @@ export default (state, prev, send) => {
   // Set the social variables
   const { socials } = state.sidebar;
 
-  // If the social vars are not present in the state go get it.
-  if (!socials || !socials.length) {
-    send('sidebar:fetchSocials');
-  }
-
   // Return the rendered HTML
   return html`
     <nav>
